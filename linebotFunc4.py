@@ -7,9 +7,9 @@ from linebot.exceptions import InvalidSignatureError
 from linebot.models import MessageEvent, TextMessage, PostbackEvent, TextSendMessage, ImagemapSendMessage, BaseSize, MessageImagemapAction, URIImagemapAction, ImagemapArea, TemplateSendMessage, ButtonsTemplate, DatetimePickerTemplateAction
 from urllib.parse import parse_qsl
 import datetime
-
-line_bot_api = LineBotApi('8AEh9lypplIeeS1e1kUgGrsy3IvCQ2E6jaUCY37c1Kg8xMVAymrsKz0foPjtUWE2CcslWZswp1eAJIx2HRiqsBNUZNfF4zu0NB/Jy33ANYRaQbfIcNkage9hvGDCMyrOD5MbouUxK8HRrZDYD0TjwAdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('b8d24065e6ba22049831f1219364e210')
+import os
+line_bot_api = LineBotApi(os.getenv("TOKEN"))
+handler = WebhookHandler(os.getenv("SECRET"))
 
 @app.route("/callback", methods=['POST'])
 def callback():
